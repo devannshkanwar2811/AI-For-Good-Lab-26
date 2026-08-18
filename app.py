@@ -20,7 +20,7 @@ def load_gemini_model():
         st.error("Missing GEMINI_API_KEY. Add it to a .env file in the project folder before using Accessibility Studio.")
         return None
     genai.configure(api_key=api_key)
-    return genai.GenerativeModel("gemini-1.5-flash")
+    return genai.GenerativeModel("gemini-3.6-flash")
 
 
 def get_uploaded_text(uploaded_file):
@@ -108,13 +108,13 @@ Original content:
 {content}
 
 Return ONLY valid JSON using this exact structure:
-{
+{{
   "title": "A short title",
   "summary": "A brief summary in plain language",
   "simplified_content": "The accessible version of the text",
   "key_points": ["point 1", "point 2"],
   "difficult_words": ["word 1", "word 2"]
-}
+}}
 
 Rules:
 - Preserve all important facts exactly.
